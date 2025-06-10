@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    the default tabular format where all details are visible under the same, without going in =to individual ones-->
+    <record id="view_hospital_patient_tree_readonly" model="ir.ui.view">
+        <field name="name">hospital.patient.tree.readonly</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="view Patients" create="0" edit="0" delete="0">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phoneNo"/>
+                <field name="age" optional="show"/>
+                <field name="gender" optional="hide"/>
+                <field name="blood_group" optional="show"/>
+                <field name="admit_date" optional="show"/>
+                <field name="is_insured" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    form that appears when a patient is clicked-->
+    <record id="view_hospital_patient_form_readonly" model="ir.ui.view">
+        <field name="name">hospital.patient.form.readonly</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">form</field>  <!-- for form view -->
+        <field name="arch" type="xml">
+            <form string="view Patients" create="0" delete="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phoneNo"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                            <field name="blood_group"/>
+                            <field name="admit_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="address"/>
+                        <field name="is_insured"/>
+                        <field name="insurance_provider" modifiers="{'invisible': [('is_insured','=',False)]}"/>
+                        <field name="emergency_contact"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!--    this creates the app icon on the dashboard -->
+    <record id="action_hospital_patient_readonly" model="ir.actions.act_window">
+        <field name="name">Patient Details</field> <!-- It's this page's name -->
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+        <!--        <field name="type">kanban</field>--> <!-- try to convert it in kanban view mode-->
+
+        <!--        have to try this command next time-->
+        <!--        as a general practice, have to delete the views from the ui for other developer every time-->
+        <!--        BIND the readonly views explicitly &ndash;&gt;-->
+        <field name="view_ids" eval="[Command.clear(),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_hospital_patient_tree_readonly')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_hospital_patient_form_readonly')})
+        ]"/>
+        <field name="help" type="html">
+            <p class="o_view_no_content_smiling_face">
+                View existing patient
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    Displayed just the patient name. _______________________________________________________________________ -->
+<!--    <template id="controller_website_temp_trial" name="controller_website_temp_trial_name">-->
+<!--        <title> Trial </title>-->
+<!--        <t t-foreach="patients" t-as="patient">-->
+<!--            <p><t t-out="patient"/></p>-->
+<!--        </t>-->
+<!--    </template>-->
+
+
+<!--    Displayed patient name as well as its details. _______________________________________________________________________ -->
+<!--    <template id="controller_website_temp_trial" name="controller_website_temp_trial_name">-->
+<!--        <t t-call="website.layout">-->
+<!--            <title> Controller Trial </title>-->
+<!--            <t t-foreach="patients" t-as="patient">-->
+<!--                <p class="page">-->
+<!--                    <t t-out="patient.name"/>-->
+<!--                    <t t-out="patient.age"/>-->
+<!--                    <t t-out="patient.blood_group"/>-->
+<!--                </p>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+
+
+
+<!--    calls the first http route-->
+    <template id="controller_website_temp_trial" name="controller_website_temp_trial_name">
+        <title> Controller Trial </title>
+        <t t-call="website.layout"> <!-- Used to add layout of the builtin odoo web page from the website model.-->
+            <div class="or_structure"/>
+            <div class="or_structure">
+                <div class="container">
+                    <t t-foreach="patients" t-as="patient">  <!--A loop is defined to iterate over the records fetched from the database-->
+                        <div class="container">
+                            <a t-attf-href="/odooDiscussion/Hospital/{{ slug(patient) }}"><t t-out="patient.name"/></a>
+                            <!-- attf means: to pass format in Qweb-->
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+<!--    calls the second route-->
+    <template id="controller_website_temp_trial_2_model">
+        <title> Controller Trial </title>
+        <t t-call="website.layout">
+            <div class="or_structure"/>
+            <div class="or_structure">
+                <div class="container">
+                    <h3><t t-out="patient.name"/></h3>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+
+<!--    Excuse this action block _______________________________________________________________________ -->
+<!--    <record id="action_controller_website_template" model="ir.actions.report">-->
+<!--        <field name="name">controller Trial</field>-->
+<!--        <field name="model">hospital.patient</field>-->
+<!--    </record>-->
+
+</odoo>

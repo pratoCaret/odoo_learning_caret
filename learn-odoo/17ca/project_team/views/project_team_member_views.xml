@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <!-- Tree View -->
+    <record id="view_team_member_tree" model="ir.ui.view">
+        <field name="name">project.team.member.tree</field>
+        <field name="model">project.team.member</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Form View -->
+    <record id="view_team_member_form" model="ir.ui.view">
+        <field name="name">project.team.member.form</field>
+        <field name="model">project.team.member</field>
+        <field name="arch" type="xml">
+            <form string="team Member">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="mobile"/>
+                        </group>
+                        <group>
+                            <field name="image"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="country_id"/>
+                        <field name="state_id"/>
+                        <field name="city_id"/>
+                        <field name="zip_code"/>
+                        <field name="street"/>
+                        <field name="street2"/>
+                        <field name="house_no"/>
+                    </group>
+                    <field name="bio_data" placeholder="Add Bio ..."/>
+                    <notebook>
+                        <page string="Timesheets">
+                            <field name="timesheet_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="unit_amount"/>
+                                    <field name="date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Search View -->
+    <record id="view_team_member_search" model="ir.ui.view">
+        <field name="name">project.team.member.search</field>
+        <field name="model">project.team.member</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+<!--                <field name="team_id"/>-->
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Kanban View -->
+    <record id="view_team_member_kanban" model="ir.ui.view">
+        <field name="name">project.team.member.kanban</field>
+        <field name="model">project.team.member</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o-kanban-image">
+                                <img t-if="record.image.value" t-att-src="kanban_image('project.team.member', 'image', record.id)"/>
+                            </div>
+                            <div>
+                                <strong><field name="name"/></strong>
+                                <div><field name="email"/></div>
+                                <div><field name="mobile"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_pt_member" model="ir.actions.act_window">
+        <field name="name">project.team.member</field>
+        <field name="res_model">project.team.member</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add your First member now !
+            </p>
+        </field>
+    </record>
+
+
+<!--    <record id="action_pt_member" model="ir.actions.act_window">-->
+<!--        <field name="name">project_team_member</field>-->
+<!--        <field name="res_model">project.team.member</field>-->
+<!--        <field name="view">kanban,tree,form</field>-->
+<!--    </record>-->
+</odoo>

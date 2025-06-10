@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    This file was used for learning actions-->
+    <template id="hospital_patient_profile_report_template" name="Patient Profile Report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1> Hello how are you ?</h1>
+                        <h1 t-out="doc.name"/>
+                        <t t-set="a" t-value="1234567890"/>
+                        <h3 t-esc="a"/>
+                        <h3 t-out="a"/>
+                        <h3 t-out="doc.age"/>
+                        <h3 t-field="doc.gender"/>
+                        <h4 t-field="doc.phoneNo"/>
+                        <h4 t-field="doc.address"/>
+                        <h4 t-field="doc.admit_date"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_hospital_patient_profile_report_template" model="ir.actions.report">
+        <field name="name">Patient Card</field>
+        <field name="model">hospital.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">house-md.hospital_patient_profile_report_template</field>
+        <field name="report_file">house-md.hospital_patient_profile_report_template</field>
+        <field name="print_report_name">'Patient-Card'</field>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

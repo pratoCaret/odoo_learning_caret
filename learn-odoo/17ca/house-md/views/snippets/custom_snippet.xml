@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    <template id="custom_snippets" name="Custom Snippets" inherit_id="website.s_alert">-->
+    <template id="custom_snippets" name="Custom Snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div id="snippet_structure" class="o_panel">
+                <div class="o_panel_header">Structure</div>
+                <div class="o_panel_body">
+                    <t t-snippet="website.s_banner" t-thumbnail="/website/static/src/img/s_banner_default_image_3.jpg">
+                        <keyword>hero, jumbotron</keyword>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="custom_snippet_options" name="custom snippet options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='Box']" position="after">
+
+        </xpath>
+    </template>
+
+</odoo>

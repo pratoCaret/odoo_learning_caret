@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_mark_as_done" model="ir.actions.server">
+        <field name="name">On hospital appointment</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="house-md.model_hospital_appointment"/>
+        <field name="binding_model_id" ref="house-md.model_hospital_appointment"/>
+        <field name="state">code</field>
+        <field name="code">
+            records.filtered(lambda r: r.appointment_type == 'attending').write({ 'appointment_type': 'done' })
+        </field>
+    </record>
+
+
+<!--    KANBAN VIEW: APPOINTMENT-->
+    <record id="view_hospital_appointment_kanban" model="ir.ui.view">
+        <field name="name">hospital.appointment.kanban</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="appointment_type" class="o_kanban_mobile">
+                <field name="patient_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_card oe_kanban_global_click">
+                            <strong><field name="patient_id"/></strong>
+                            <div><field name="dateTime_appointment" string="Date $ Time"/></div>
+                            <div><field name="doctor_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+<!--                            these were inside the kanban -->
+<!--                            <br/>-->
+<!--                            <span class="text-muted" invisible="not mail_template_id">-->
+<!--                                <field name="mail_template_id"/>-->
+<!--                                <br/>-->
+<!--                            </span>-->
+<!--                            <span groups="base.group_multi_company" invisible="not company_id">-->
+<!--                                <field name="company_id"/>-->
+<!--                                <br/>-->
+<!--                            </span>-->
+
+    <!-- TREE VIEW: APPOINTMENT -->
+    <record id="view_hospital_appointment_tree" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Appointment" decoration-danger="not doctor_id" create="1" edit="1" delete="1">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="dateTime_appointment" optional="show"/>
+                <field name="priority"/>
+                <field name="appointment_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- FORM VIEW: APPOINTMENT -->
+    <record id="view_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <header>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                        </group>
+                        <group>
+                            <field name="dateTime_appointment"/>
+                            <field name="priority"/>
+                            <field name="create_uid" string="Created By" readonly="1" context="{'invisible': [('id', '=', False)]}"/>
+                            <field name="write_uid" string="Last Edited By" readonly="1" context="{'invisible': [('id', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="doctor_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="appointment_type"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION WINDOW: APPOINTMENT -->
+    <record id="action_hospital_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_no_content_smiling_face">
+                Create a new appointment
+            </p>
+        </field>
+    </record>
+</odoo>

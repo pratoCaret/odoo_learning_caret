@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="patient_registration_form_view" name="Patient Regi Form">
+        <title>Patient_Registration_Form</title>
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Patient Registration Form</h1>
+                <ul>
+                    <t t-foreach="patients" t-as="patient">
+                        <h5><t t-out="patient.name"/></h5>
+                        <p>Hey Patient !</p>
+                    </t>
+                </ul>
+            </div>
+        </t>
+    </template>
+
+</odoo>

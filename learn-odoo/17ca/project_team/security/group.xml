@@ -1,0 +1,15 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<odoo>-->
+<!--    <record id="new_user_group" model="res.groups">-->
+<!--        <field name="name">user</field>-->
+<!--        <field name="users" eval="[(4, ref('base.group_user'))]"/>-->
+<!--        <field name="users" eval="[(4, ref('base.group_user'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="group_read_only_user" model="res.groups">-->
+<!--    <field name="name">Read-Only User</field>-->
+<!--    <field name="category_id" ref="base.module_category_hidden"/> &lt;!&ndash; You can pick a category &ndash;&gt;-->
+<!--    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+<!--</record>-->
+
+<!--</odoo>-->

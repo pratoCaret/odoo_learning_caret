@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_patient_1" model="hospital.patient">
+            <field name="name">John Doe</field>
+            <field name="email">john.doe@example.com</field>
+            <field name="phoneNo">+919876543210</field>
+            <field name="age">30</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="address">123 Maple Street, Springfield</field>
+            <field name="is_insured">1</field>
+            <field name="insurance_provider">LifeSecure</field>
+            <field name="emergency_contact">+918888888888</field>
+        </record>
+
+        <record id="demo_patient_2" model="hospital.patient">
+            <field name="name">Jane Smith</field>
+            <field name="email">jane.smith@example.com</field>
+            <field name="phoneNo">+919123456789</field>
+            <field name="age">67</field>
+            <field name="gender">female</field>
+            <field name="blood_group">A-</field>
+            <field name="address">456 Oak Avenue, Metropolis</field>
+            <field name="is_insured">0</field>
+            <field name="insurance_provider"/>
+            <field name="emergency_contact">+917777777777</field>
+        </record>
+
+        <record id="demo_patient_3" model="hospital.patient">
+            <field name="name">Rahul Mehta</field>
+            <field name="email">rahul.mehta@example.com</field>
+            <field name="phoneNo">+919328551638</field>
+            <field name="age">12</field>
+            <field name="gender">male</field>
+            <field name="blood_group">B+</field>
+            <field name="address">789 Pine Lane, Mumbai</field>
+            <field name="is_insured">1</field>
+            <field name="insurance_provider">StarHealth</field>
+            <field name="emergency_contact">+916666666666</field>
+        </record>
+
+    </data>
+</odoo>

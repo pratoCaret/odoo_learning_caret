@@ -1,0 +1,9 @@
+
+.o_form_label {
+    font-size: 50px;
+
+    &::after {
+        content: ' -->';
+        color: red;
+    }
+}

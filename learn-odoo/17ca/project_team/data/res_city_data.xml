@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Gujarat state ID is usually 'in_gj', you should confirm this in your DB -->
+        <record id="city_ahmedabad" model="res.state.city"> # res_state_city ek navu table bane che database ni under ma.
+            <field name="name">Ahmedabad</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">380001</field>
+        </record>
+        <record id="city_surat" model="res.state.city">
+            <field name="name">Surat</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">395003</field>
+        </record>
+        <record id="city_rajkot" model="res.state.city">
+            <field name="name">Rajkot</field>
+            <field name="state_id" ref="base.state_in_gj"/> # aa atle aaipu che k e listed che gujrat state na id ni under ma. check from the database side, you'll know
+            <field name="zip_code">360001</field>
+        </record>
+        <record id="city_vadodara" model="res.state.city">
+            <field name="name">Vadodara</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">390001</field>
+        </record>
+        <record id="city_bhavnagar" model="res.state.city">
+            <field name="name">Bhavnagar</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">364001</field>
+        </record>
+        <record id="city_jamnagar" model="res.state.city">
+            <field name="name">Jamnagar</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">361001</field>
+        </record>
+        <record id="city_gandhinagar" model="res.state.city">
+            <field name="name">Gandhinagar</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">382010</field>
+        </record>
+        <record id="city_mehsana" model="res.state.city">
+            <field name="name">Mehsana</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">384001</field>
+        </record>
+        <record id="city_bharuch" model="res.state.city">
+            <field name="name">Bharuch</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">392001</field>
+        </record>
+        <record id="city_anand" model="res.state.city">
+            <field name="name">Anand</field>
+            <field name="state_id" ref="base.state_in_gj"/>
+            <field name="zip_code">388001</field>
+        </record>
+    </data>
+</odoo>

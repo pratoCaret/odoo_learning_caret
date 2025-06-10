@@ -1,0 +1,16 @@
+diff btw parameter and arguments in functions
+	parameter				arguments
+
+
+
+diff-sql and psql
+		sql					psql
+transact sql based				supports json formating as well 
+lock based control			multi version concurrency control
+supports clustered, non clustered	supports B-tree, harsh indexing, GIN, BRIN
+bad full text search 			good full text searching with indexing 
+supports json but lacks indexing 	supports json and bjson and indexing
+vertical scaling 			horizontal scaling 
+
+
+map( ,lambda x: x in list1) 

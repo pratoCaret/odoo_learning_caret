@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Search View -->
+    <record id="view_search_tree_form" model="ir.ui.view">
+        <field name="name">Search Bar</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Search Patients">
+                <field name="name"/>
+                <field name="age"/>
+<!--                <field name="gender"/>-->
+                <filter name="male" string="Male" domain="[('gender','=','male')]"/>
+                <filter name="female" string="Female" domain="[('gender','=','female')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="group1" domain="[]" context="{'group_by': 'gender'}"/>
+<!--                    <separator/>-->
+                    <filter string="Age group" name="group2" domain="[]" context="{'group_by': 'age_group'}"/>
+                </group>
+<!--                <searchpanel>-->
+<!--                    <field name="gender" string="gender" enable_counters="1"/>-->
+<!--                </searchpanel>-->
+            </search>
+        </field>
+    </record>
+
+
+
+
+    <!-- Tree View  -->
+    <record id="view_search_tree" model="ir.ui.view">
+        <field name="name">Search tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View  -->
+    <record id="view_search_form" model="ir.ui.view">
+        <field name="name">Search Form</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Patient Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_search_view" model="ir.actions.act_window">
+        <field name="name">Search View</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_ids" eval="[Command.clear(),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_search_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_search_form')})
+        ]"/>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_search_tree_form"/>  <!-- gives a specific search view to a view (tree/kanban) -->
+        <field name="context">{'search_default_male':0}</field> <!-- gives by default: a filter for gender = male -->
+        <field name="help" type="html">
+            <p class="o_view_no_content_smiling_face">
+                Search a patient
+            </p>
+        </field>
+    </record>
+</odoo>

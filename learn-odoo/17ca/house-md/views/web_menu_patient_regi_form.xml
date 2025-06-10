@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="web_menu_patient_regi_form_extended_page" model="website.page">
+        <field name="name">patient regi form extended page</field>
+        <field name="url">/hospital/patient_registration_form</field>
+        <field name="view_id" ref="web_menu_patient_registration_form"/>
+    </record>
+
+</odoo>

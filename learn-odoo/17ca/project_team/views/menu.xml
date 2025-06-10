@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    Project Task-->
+    <menuitem id="menu_project_team"
+              name="PT"
+    />
+
+<!--    Project Team > Project Team Member-->
+    <menuitem id="menu_project_team_member"
+              name="Project Team Member"
+              parent="menu_project_team"
+              action="action_pt_member"
+    />
+
+</odoo>

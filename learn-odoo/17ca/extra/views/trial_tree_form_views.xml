@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hospital_triallearn_tree_view" model="ir.ui.view">
+        <field name="name">hospital.triallearn.tree2</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="trial_tree" create="1" edit="1" delete="1">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+<!--    <record id="view_hospital_triallearn_form_view" model="ir.ui.view">-->
+<!--        <field name="name">hospital.triallearn.form2</field>-->
+<!--        <field name="model">hospital.triallearn</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form create="1" edit="1" delete="1">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="name"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="view_hospital_triallearn_form_view" model="ir.ui.view">
+        <field name="name">hospital.triallearn.form2</field>
+        <field name="model">hospital.patient</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Patient Form">
+                <!-- Top level group -->
+                <group>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                </group>
+
+                <!-- Notebook with tabs -->
+                <notebook>
+                    <!-- First Tab -->
+                    <page string="Contact Info">
+                        <group>
+                            <field name="phoneNo"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                        </group>
+                    </page>
+
+                    <!-- Second Tab -->
+                    <page string="Medical History">
+                        <group>
+                            <field name="blood_group"/>
+                            <field name="emergency_contact"/>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tree_form" model="ir.actions.act_window">
+        <field name="name">Tree and Form</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_ids" eval="[Command.clear(),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_hospital_triallearn_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_hospital_triallearn_form_view')})
+        ]"/>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_no_content_smiling_face">
+                Add new *
+            </p>
+        </field>
+    </record>
+
+</odoo>

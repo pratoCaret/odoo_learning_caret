@@ -1,0 +1,55 @@
+#  Project's Possible Structure
+
+project_team_module/
+│
+├── __manifest__.py
+├── __init__.py
+│
+├── models/
+│   ├── __init__.py
+│   ├── project_team_member.py       # Models: project.team.member
+│   ├── res_city.py                  # res.state.city
+│   ├── project_team.py              # Models: project.team
+│   ├── startend_mixin.py           # Abstract model
+│   ├── project_task_custom.py      # Inherited project.team
+│   ├── res_partner_extension.py    # Constraint on email, restrict_mail
+│
+├── views/
+│   ├── project_team_views.xml
+│   ├── project_team_member_views.xml
+│   ├── res_city_views.xml
+│   ├── project_views_extension.xml
+│   ├── project_task_views.xml
+│   ├── wizard_views.xml
+│   ├── menu_items.xml
+│
+├── data/
+│   ├── ir_cron_data.xml
+│   ├── city_data.xml
+│   ├── demo.xml
+│
+├── security/
+│   ├── ir.model.access.csv
+│   ├── security.xml
+│
+├── wizards/
+│   ├── __init__.py
+│   ├── add_team_member_wizard.py
+│   ├── task_export_wizard.py
+│
+├── controllers/
+│   ├── __init__.py
+│   ├── lead_web_controller.py
+│
+├── static/
+│   ├── description/
+│   │   └── index.html
+│
+├── i18n/
+│   └── gu.po                       # Gujarati translations
+
+--------------------------------------------------------------------------------
+            Details: As follows.
+--------------------------------------------------------------------------------
+
+

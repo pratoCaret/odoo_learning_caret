@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="web_menu_patient_registration_form" name="patient_regi_form_menu">
+        <title>Registration Form</title>
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <h3 align="center" class="h3_heading">This is a Trial website default page</h3>
+                <p>Used to check if deployed properly</p>
+            </div>
+        </t>
+    </template>
+
+</odoo>

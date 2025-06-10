@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_cron_job_trial" model="ir.cron">
+        <field name="name">hospital patient cron job</field>
+        <field name="model_id" ref="model_hospital_patient"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field> <!-- -ve number means no limit-->
+        <field name="code">#test cron job</field>
+        <field name="state">code</field>
+    </record>
+
+</odoo>

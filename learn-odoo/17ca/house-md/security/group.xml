@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data noupdate="0">
+
+        <record id="module_category_hospital" model="ir.module.category">
+            <field name="name">hms</field>
+        </record>
+
+<!--        Receptionists-->
+        <record id="group_hospital_receptionist" model="res.groups">
+            <field name="name">Receptionist</field>
+            <field name="category_id" ref="module_category_hospital"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">this user will have access to appointments.</field>
+        </record>
+
+<!--        Accountants-->
+        <record id="group_hospital_accountant" model="res.groups">
+            <field name="name">Accountants</field>
+            <field name="category_id" ref="house-md.module_category_hospital"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">gives you access to the accountants of the hospital.</field>
+        </record>
+
+<!--        Doctors-->
+        <record id="group_hospital_doctor" model="res.groups">
+            <field name="name">Doctors</field>
+            <field name="category_id" ref="module_category_hospital"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">this user will have access to patient details and medical records.</field>
+        </record>
+
+<!--        Admins-->
+        <record id="group_hospital_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="house-md.module_category_hospital"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">this user will have access to patient details and medical records.</field>
+        </record>
+
+    </data>
+
+</odoo>

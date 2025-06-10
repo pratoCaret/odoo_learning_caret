@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="rendering_template_for_products_sales" name="Product sales">
+        <title>Product Catalog Trial</title>
+        <t t-call="website.layout">
+            <div class="container">
+                <h3>Product Catalog</h3>
+
+<!--            Search Bar-->
+                <form method="get" action="/trial/product/catalog">
+                    <input type="text" name="Search" class="form_control" placeholder="Search Products... " t-att-value="search"/>
+
+<!--                Category filter-->
+                    <select name="category_id" class="form_control mt-2">
+                        <option value="">All Category</option>
+                        <t t-foreach="categories" t-as="category">
+                            <option t-att-value="category.id" t-att-selected="category.id == select_category_id">
+                                <t t-out="category.name"/>
+                            </option>
+                        </t>
+                    </select>
+
+<!--                Sorting Options-->
+                    <select name="sort_by" class="form_control mt-2">
+                        <option value="name" t-att-selected="sort_by == 'name'">Sort by Name</option>
+                        <option value="list_price" t-att-selected="sort_by == 'list_price'">Sort by Price</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary mt-2">Filter</button>
+                </form>
+
+<!--            Product List-->
+                <ul class="product-list mt-4">
+                    <t t-foreach="products" t-as="product">
+                        <li class="product-item">
+                            <h3><t t-out="product.name"/></h3>
+                            <p>Price: <t t-out="product.list_price"/></p>
+                        </li>
+                    </t>
+                </ul>
+            </div>
+        </t>
+    </template>
+
+</odoo>

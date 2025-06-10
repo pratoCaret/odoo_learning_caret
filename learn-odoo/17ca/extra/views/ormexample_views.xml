@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_hospital_orm_tree" model="ir.ui.view">
+        <field name="name">ORM Tree</field>
+        <field name="model">hospital.ormexample</field>
+        <field name="arch" type="xml">
+            <tree>
+<!--                <button name="custom_warning_method" string="CustomWarning" type="object" /> &lt;!&ndash; This method is depricated from odoo 17&ndash;&gt;-->
+<!--                <button name="redirecterrorfunction" string="redirect error" type="object" />-->
+<!--                <button name="default_get" string="default get" type="object" />-->
+<!--                <button name="name_get" string="Name get" type="object" />-->
+<!--                <button name="name_search" string="Name search" type="object" />-->
+<!--                <button name="group_by_gender" string="Read_group" type="object" />-->
+<!--                <button name="get_patient_data" string="search_read" type="object" />-->
+<!--                <button name="read_patients" string="ReadSearch" type="object" />-->
+<!--                <button name="browse_orm_method" string="Browse" type="object" />-->
+<!--                <button name="get_adults" string="Search" type="object" />-->
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_orm_form" model="ir.ui.view">
+        <field name="name">ORM Form</field>
+        <field name="model">hospital.ormexample</field>
+        <field name="arch" type="xml">
+            <form string="ORM Example Patient">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                    </group>
+<!--                    <group>-->
+<!--                        <button name="create" type="object" string="Create Patient" class="btn-primary"/>-->
+<!--                        <button name="action_load_default"-->
+<!--                                type="object"-->
+<!--                                string="Default Patient"-->
+<!--                                class="btn-primary"-->
+<!--                                save="false"-->
+<!--                        />-->
+<!--                    </group>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ormexample" model="ir.actions.act_window">
+        <field name="name">ORM example</field>
+        <field name="res_model">hospital.ormexample</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[Command.clear(),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_hospital_orm_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_hospital_orm_form')})
+        ]"/>
+        <field name="help" type="html">
+            <p class="o_view_no_content_smiling_face">
+                Create a new data for orm methods
+            </p>
+        </field>
+    </record>
+
+</odoo>

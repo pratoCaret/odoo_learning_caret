@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_patient_pivot" model="ir.ui.view">
+        <field name="name">hospital.patient.pivot</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <pivot string="Patient Pivot">
+                <field name="gender" type="row"/>
+                <field name="age" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+
+    <record id="action_pivot" model="ir.actions.act_window">
+        <field name="name">Pivot</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">pivot,tree,form</field>
+        <field name="view_id" ref="view_appointment_graph"/>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

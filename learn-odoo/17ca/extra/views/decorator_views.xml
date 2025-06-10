@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="decorator_tree_view" model="ir.ui.view">
+        <field name="name">Decorator's Trial</field>
+        <field name="model">hospital.decorator</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="decor input" create="1" edit="1" delete="1">
+
+                <field name="name" width="50%"/>
+                <field name="age" width="25%"/>
+                <field name="dob" width="25%"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="decorator_form_view" model="ir.ui.view">
+        <field name="name">Decorator's Trial</field>
+        <field name="model">hospital.decorator</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="decor_input" create="0" edit="1" delete="1">
+                <group> <!-- group tag is necessary for xml to show the string attribute in the form -->
+                    <group>
+                        <field name="name"/>
+                        <field name="dob"/>
+                        <field name="age"/>
+                    </group>
+<!--                    <group>-->
+<!--                        <button name="decorator_trial_method"-->
+<!--                                type="object"-->
+<!--                                string="Default Patient"-->
+<!--                                class="btn-primary"-->
+<!--                                save="false"-->
+<!--                        />-->
+<!--                    </group>-->
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_decorator" model="ir.actions.act_window">
+        <field name="name">Decorator Trying</field>
+        <field name="res_model">hospital.decorator</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_no_content_smiling_face">
+                New data for decorator trial
+            </p>
+        </field>
+    </record>
+</odoo>

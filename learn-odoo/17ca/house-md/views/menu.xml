@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--    HMS - hospital management system-->
+    <menuitem id="menu_hospital_root"
+              name="HMS"
+              web_icon="house-md,static/src/img/house-md.png"
+    />
+    <!--      web_icon="module's original file name , followed by path of icon.png from the module name file " -->
+
+    <!--    HMS > frontdesk -->
+    <menuitem id="menu_frontdesk"
+              name="Front Desk"
+              groups="group_hospital_receptionist,group_hospital_doctor,group_hospital_admin"
+              parent="menu_hospital_root"
+              sequence="1"
+    />
+            <!--    FRONTDESK > patient -->
+            <menuitem id="menu_patients"
+                      name="add/edit patient"
+                      parent="menu_frontdesk"
+                      action="action_hospital_patient"
+                      sequence="1"
+            />
+            <!--    FRONTDESK > appointment -->
+            <menuitem id="menu_appointment"
+                      name="manage appointments"
+                      parent="menu_frontdesk"
+                      action="action_hospital_appointment"
+                      sequence="2"
+            />
+<!--            &lt;!&ndash;    FRONTDESK > url redirect &ndash;&gt;-->
+<!--            <menuitem id="menu_url_lint_trial"-->
+<!--                      name="Google YT"-->
+<!--                      parent="menu_frontdesk"-->
+<!--                      action="action_hospital_patient_url_trial"-->
+<!--                      sequence="3"-->
+<!--            />-->
+
+    <!--    HMS > Doctor-desk -->
+    <menuitem id="menu_doctordesk"
+              name="Doctor's Dashboard"
+              groups="group_hospital_doctor,group_hospital_admin"
+              parent="menu_hospital_root"
+              action="action_hospital_doctor"
+              sequence="2"
+    />
+
+<!--    &lt;!&ndash;    HMS > ORM example &ndash;&gt;-->
+<!--    <menuitem id="menu_ormexample"-->
+<!--              name="ORM example"-->
+<!--              parent="menu_hospital_root"-->
+<!--              groups="group_hospital_admin"-->
+<!--              action="action_ormexample"-->
+<!--    />-->
+
+<!--    &lt;!&ndash;    HMS > Decorator &ndash;&gt;-->
+<!--    <menuitem id="menu_decorator"-->
+<!--              name="Decorators"-->
+<!--              parent="menu_hospital_root"-->
+<!--              groups="group_hospital_admin"-->
+<!--              action="action_decorator"-->
+<!--    />-->
+
+<!--    &lt;!&ndash;    HMS > Views&ndash;&gt;-->
+<!--    <menuitem id="menu_view_type"-->
+<!--              name="Views Trial"-->
+<!--              parent="menu_hospital_root"-->
+<!--              groups="group_hospital_admin"-->
+<!--    />-->
+<!--            &lt;!&ndash;    Views > Tree and Form&ndash;&gt;-->
+<!--            <menuitem id="menu_view_tree_and_form"-->
+<!--                      name="Tree and Form"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_tree_form"-->
+<!--            />-->
+<!--            &lt;!&ndash;    Views > Kanban&ndash;&gt;-->
+<!--            <menuitem id="menu_view_kanban"-->
+<!--                      name="Kanban"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_kanban"-->
+<!--            />-->
+<!--            &lt;!&ndash;    Views > Calender&ndash;&gt;-->
+<!--            <menuitem id="menu_view_calendar"-->
+<!--                      name="Calendar"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_calendar"-->
+<!--            />-->
+<!--            &lt;!&ndash;    Views > Graph&ndash;&gt;-->
+<!--            <menuitem id="menu_view_graph"-->
+<!--                      name="Graph"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_graph"-->
+<!--            />-->
+<!--            &lt;!&ndash;    Views > Pivot&ndash;&gt;-->
+<!--            <menuitem id="menu_view_pivot"-->
+<!--                      name="Pivot"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_pivot"-->
+<!--            />-->
+<!--            &lt;!&ndash;    Views > Search View&ndash;&gt;-->
+<!--            <menuitem id="menu_view_searchview"-->
+<!--                      name="Search View"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_search_view"-->
+<!--            />-->
+
+<!--            &lt;!&ndash;    Views > Trial Learn &ndash;&gt;-->
+<!--            <menuitem id="menu_triallearn"-->
+<!--                      name="Trial Learn"-->
+<!--                      parent="menu_view_type"-->
+<!--                      action="action_hospital_trialLearn"-->
+<!--                      sequence="1"-->
+<!--            />-->
+
+</odoo>

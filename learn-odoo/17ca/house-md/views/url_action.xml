@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_hospital_patient_url_trial" mode="ir.actions.act_url">
+        <field name="name">Google YT</field>
+        <field name="url">https://youtube.com</field>
+<!--        <field name="target">self</field> &lt;!&ndash; by default self&ndash;&gt;-->
+    </record>
+
+</odoo>
